@@ -9,7 +9,13 @@ público**.
    - Secretaría del Senado — gestor normativo (`secretariasenado.gov.co`)
    - Función Pública — gestor normativo (`funcionpublica.gov.co`)
 2. Guárdalo aquí como `codigo_sustantivo_trabajo.pdf`.
-3. Ingéstalo:
+3. Ingéstalo. **Forma recomendada** (valida y muestra un preview antes de subir):
+
+   ```bash
+   python add_document.py --pdf data/codigo_sustantivo_trabajo.pdf --code "CST"
+   ```
+
+   O la forma directa, sin confirmación:
 
    ```bash
    python -m rag.ingest --pdf data/codigo_sustantivo_trabajo.pdf --code CST
