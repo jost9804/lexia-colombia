@@ -1,0 +1,17 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Datos fuente (PDFs grandes / con copyright de edición)
+data/*.pdf
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

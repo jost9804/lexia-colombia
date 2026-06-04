@@ -1,0 +1,22 @@
+# Core RAG
+numpy>=1.26.0
+psycopg[binary]>=3.2.0
+pgvector>=0.3.0
+pdfplumber>=0.11.0
+python-dotenv>=1.0.1
+
+# IA gratis por defecto (Google Gemini / AI Studio)
+google-genai>=0.3.0
+
+# API + UI
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+httpx>=0.27.0
+streamlit>=1.38.0
+
+# ─── Proveedores de pago opcionales (solo si cambias GEN/EMBED_PROVIDER) ───
+# anthropic>=0.40.0
+# openai>=1.40.0
+
+# Embeddings locales opcionales (EMBED_PROVIDER=local). Pesado: ~2 GB.
+# sentence-transformers>=3.0.0
