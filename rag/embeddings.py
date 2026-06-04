@@ -99,6 +99,12 @@ def embed_texts(
             except Exception as e:  # noqa: BLE001
                 if not _is_rate_limit(e) or attempt == max_retries - 1:
                     raise
+                # Límite DIARIO: reintentar hoy no sirve → fallar rápido.
+                if "PerDay" in str(e):
+                    print("      [cuota diaria agotada] Se acabaron las ~1000 peticiones de "
+                          "embeddings de hoy. Vuelve a ejecutar tras el reset (medianoche "
+                          "hora del Pacifico, ~2 a.m. en Colombia). El progreso ya guardado se conserva.")
+                    raise
                 wait = 30 * (attempt + 1)  # 30s, 60s, 90s...
                 print(f"      [throttle] Limite por minuto; esperando {wait}s y reintentando...")
                 time.sleep(wait)

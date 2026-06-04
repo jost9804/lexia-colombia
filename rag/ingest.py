@@ -109,12 +109,14 @@ def ingest(pdf_path: str, code: str) -> int:
     articles = split_into_articles(text, code)
     print(f"      {len(articles)} artículos detectados.")
 
-    print("[3/4] Generando embeddings (ritmo conservador para el free tier) …")
-    # Lotes pequeños + pausa: respeta el límite por minuto del free tier de Gemini.
+    print("[3/4] Generando embeddings …")
+    # Lotes grandes (menos peticiones → menos gasto de la cuota diaria) con pausa
+    # entre lotes para respetar el límite por minuto. Para grandes volúmenes con
+    # reanudación automática, usa el script add_document.py.
     vectors = embed_texts(
         [a["content"] for a in articles],
-        batch_size=5,
-        throttle=12.0,
+        batch_size=20,
+        throttle=6.0,
         verbose=True,
     )
     for a, v in zip(articles, vectors):
