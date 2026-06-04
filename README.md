@@ -4,7 +4,7 @@
 > en el texto legal, con cita del artículo exacto**. Pensado para que abogados agilicen la
 > investigación jurídica que hoy toma horas de lectura manual.
 
-**🔗 Demo en vivo:** _(pega aquí tu URL desplegada)_
+**🔗 Demo en vivo:** **https://lexia-colombia.streamlit.app/**
 **🧪 Stack:** Python · pgvector (PostgreSQL/Supabase) · Google Gemini (`gemini-2.5-flash-lite`
 + `gemini-embedding-001`) · FastAPI · Streamlit
 **💸 Costo:** $0 — usa el free tier de Google Gemini (generación + embeddings) y Supabase.
