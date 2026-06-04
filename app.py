@@ -5,7 +5,17 @@ Ejecutar:
 """
 from __future__ import annotations
 
+import os
+
 import streamlit as st
+
+# Puente: en Streamlit Cloud las llaves vienen de st.secrets; en local, de .env.
+# Copiamos los secrets a variables de entorno ANTES de importar el core RAG.
+try:
+    for _k, _v in st.secrets.items():
+        os.environ.setdefault(_k, str(_v))
+except Exception:  # noqa: BLE001 - sin secrets locales: se usa .env
+    pass
 
 from rag.generator import answer_stream, retrieve
 
